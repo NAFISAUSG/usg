@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineWidget } from 'react-calendly';
 import { Calendar, CheckCircle, Clock, Target, TrendingUp, Users } from 'lucide-react';
 
 const BookingPage: React.FC = () => {
@@ -8,7 +9,10 @@ const BookingPage: React.FC = () => {
         {/* Header Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Book Your Free <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">Strategy Call</span>
+            Book Your Free{' '}
+            <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+              Strategy Call
+            </span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Get personalized insights and a custom roadmap to transform your email marketing into a revenue-generating machine.
@@ -22,75 +26,64 @@ const BookingPage: React.FC = () => {
               <h2 className="text-3xl font-bold text-white mb-6">
                 What You'll Get in This Call
               </h2>
-              
+
               <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0 border border-gray-600">
-                    <TrendingUp className="text-purple-400" size={20} />
+                {[
+                  {
+                    icon: TrendingUp,
+                    title: 'Deep-Dive Analysis',
+                    desc: 'Comprehensive review of your current email marketing performance and identification of immediate opportunities.',
+                  },
+                  {
+                    icon: Target,
+                    title: 'Custom Strategy',
+                    desc: 'Personalized strategy tailored to your business model and audience.',
+                  },
+                  {
+                    icon: CheckCircle,
+                    title: 'Actionable Insights',
+                    desc: 'Tactical action items to start boosting results within 30 days.',
+                  },
+                  {
+                    icon: Users,
+                    title: 'Expert Guidance',
+                    desc: 'Direct input from seasoned e-commerce email marketers.',
+                  },
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0 border border-gray-600">
+                      <item.icon className="text-purple-400" size={20} />
+                    </div>
+                    <div>
+                      <h3 className="text-white font-semibold mb-2">{item.title}</h3>
+                      <p className="text-gray-300">{item.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-white font-semibold mb-2">Deep-Dive Analysis</h3>
-                    <p className="text-gray-300">Comprehensive review of your current email marketing performance and identification of immediate opportunities.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0 border border-gray-600">
-                    <Target className="text-purple-400" size={20} />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-semibold mb-2">Custom Strategy</h3>
-                    <p className="text-gray-300">Personalized email marketing strategy tailored specifically to your business model and target audience.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0 border border-gray-600">
-                    <CheckCircle className="text-purple-400" size={20} />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-semibold mb-2">Actionable Insights</h3>
-                    <p className="text-gray-300">Immediate action items you can implement to start seeing results within the first 30 days.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0 border border-gray-600">
-                    <Users className="text-purple-400" size={20} />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-semibold mb-2">Expert Guidance</h3>
-                    <p className="text-gray-300">Direct access to our team of email marketing experts with years of e-commerce experience.</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
             {/* Call Details */}
             <div className="bg-gray-900 border border-gray-700 rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-white mb-4">Call Details</h3>
-              
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
+              <ul className="space-y-4">
+                <li className="flex items-center gap-3">
                   <Clock className="text-purple-400" size={20} />
-                  <span className="text-gray-300">Duration: 45-60 minutes</span>
-                </div>
-                
-                <div className="flex items-center gap-3">
+                  <span className="text-gray-300">Duration: 30 minutes</span>
+                </li>
+                <li className="flex items-center gap-3">
                   <Calendar className="text-purple-400" size={20} />
-                  <span className="text-gray-300">Format: Video call via Zoom</span>
-                </div>
-                
-                <div className="flex items-center gap-3">
+                  <span className="text-gray-300">Format: Zoom Video Call</span>
+                </li>
+                <li className="flex items-center gap-3">
                   <CheckCircle className="text-purple-400" size={20} />
-                  <span className="text-gray-300">Cost: Completely free</span>
-                </div>
-                
-                <div className="flex items-center gap-3">
+                  <span className="text-gray-300">Cost: 100% Free</span>
+                </li>
+                <li className="flex items-center gap-3">
                   <Target className="text-purple-400" size={20} />
-                  <span className="text-gray-300">Outcome: Custom growth strategy</span>
-                </div>
-              </div>
+                  <span className="text-gray-300">Goal: Custom Revenue Plan</span>
+                </li>
+              </ul>
             </div>
 
             {/* Testimonial */}
@@ -116,23 +109,18 @@ const BookingPage: React.FC = () => {
               <h3 className="text-2xl font-bold text-white mb-6 text-center">
                 Schedule Your Call
               </h3>
-              
-              {/* Calendly Embed Placeholder */}
-              <div className="bg-black border border-gray-700 rounded-xl p-8 text-center min-h-[500px] flex items-center justify-center">
-                <div className="text-center">
-                  <Calendar className="text-purple-400 mb-4 mx-auto" size={48} />
-                  <h4 className="text-white text-xl font-semibold mb-2">
-                    Calendly Integration
-                  </h4>
-                  <p className="text-gray-300 mb-6">
-                    Your Calendly embed code would go here. Replace this placeholder with your actual Calendly embed script.
-                  </p>
-                  <div className="bg-gray-800 border border-gray-600 rounded-lg p-4">
-                    <code className="text-purple-400 text-sm">
-                      &lt;Calendly Embed Script&gt;
-                    </code>
-                  </div>
-                </div>
+              <div className="rounded-xl overflow-hidden min-h-[600px]">
+                <InlineWidget
+                  url="https://calendly.com/nafisausg/30min"
+                  styles={{ height: '600px' }}
+                  pageSettings={{
+                    backgroundColor: '1a1a1a',
+                    primaryColor: '9333ea', // Tailwind's purple-600
+                    textColor: 'ffffff',
+                    hideEventTypeDetails: false,
+                    hideLandingPageDetails: false,
+                  }}
+                />
               </div>
             </div>
           </div>
